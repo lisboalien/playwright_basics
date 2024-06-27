@@ -12,8 +12,10 @@ test('start test of a page', async ({ page }) => {
 
     // Click the Test History button
     await page.getByPlaceholder('https://web.dev').fill('https://web.dev');
+
     await page.getByRole('button', { name: 'Start Test' }).click();
 
+    await page.pause();
 
     // See if the page opened
     await expect(page.getByText('Testing https://web.dev')).toBeVisible();
